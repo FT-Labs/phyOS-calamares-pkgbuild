@@ -12,7 +12,6 @@ license=('LGPL')
 depends=('kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'kio' 'solid' 'yaml-cpp' 'kpmcore>=4.2.0' 'mkinitcpio-openswap'
          'boost-libs' 'ckbcomp' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gtk-update-icon-cache' 'plasma-framework'
          'qt5-xmlpatterns' 'squashfs-tools' 'libpwquality' 'efibootmgr' 'icu')
-conflicts=('arco-calamares' 'arco-calamares-comp' 'arco-calamares-dev')
 makedepends=('extra-cmake-modules' 'qt5-tools' 'qt5-translations' 'git' 'boost')
 backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/displaymanager.conf'
@@ -24,8 +23,6 @@ source=("$_pkgname-$pkgver::$url/download/v$pkgver/$_pkgname-$pkgver.tar.gz"
 	"ucode_module.desc"
 	"dm_main.py"
 	"packages_main.py"
-	"cal-phyOS.desktop"
-	"cal-phyOS-debug.desktop"
 	"calamares_polkit")
 
 sha256sums=('55adef250613e80a868f2aa3d1e57bdae5b769387d91decf0fe2b64e3605574f'
