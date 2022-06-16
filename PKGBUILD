@@ -23,6 +23,8 @@ source=("$_pkgname-$pkgver::$url/download/v$pkgver/$_pkgname-$pkgver.tar.gz"
 	"ucode_module.desc"
 	"dm_main.py"
 	"packages_main.py"
+	"cal-phyOS.desktop"
+	"cal-phyOS-debug.desktop"
 	"calamares_polkit")
 
 sha256sums=('55adef250613e80a868f2aa3d1e57bdae5b769387d91decf0fe2b64e3605574f'
@@ -30,8 +32,8 @@ sha256sums=('55adef250613e80a868f2aa3d1e57bdae5b769387d91decf0fe2b64e3605574f'
             '830b6e2efaf794dd3c0503dc990249742ac97b8a92a414b2c1cdc9d562864aed'
             '0d8a204420bb863f17c1e0a0c008443a5db1c37306e060ffacfde6e29e214ea5'
             '6d030bfc6d20caf3ad70cc1676763cd75638c8c79c2f9f1d7f3d05331030aa2d'
-            'fd884147b0166e8115d8128282db8c2b00a93f81c17d8defd18e1fe01a377d1b'
-            '7c38fc1461307e4aff9b72922c6406789776a8252521618c5dcbe85beccb04f5'
+            'd9a15c3033422451bfe2ee944b17f938252942d2a9cdbcc0d9927211f553777b'
+            '9ce76a4c4a0d90950e70be8d208235704360fbc64976ed6130719bcdedf34f27'
             '966c5f0834039dc6a7529e75f70417ba2510b1e643ffb49fd25855ce9dc244b4')
 
 pkgver() {
