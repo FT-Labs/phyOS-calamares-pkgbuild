@@ -419,22 +419,26 @@ class PMPacman(PackageManager):
         :param callback: An optional boolean that indicates if this pacman run should use the callback
         :return:
         """
+        try:
+            pacman_count = 0
+            while pacman_count <= self.pacman_num_retries:
+                pacman_count += 1
+                try:
+                    if False: # callback:
+                        libcalamares.utils.target_env_process_output(command, self.line_cb)
+                    else:
+                        libcalamares.utils.target_env_process_output(command)
 
-        pacman_count = 0
-        while pacman_count <= self.pacman_num_retries:
-            pacman_count += 1
-            try:
-                if callback is True:
-                    libcalamares.utils.target_env_process_output(command, self.line_cb)
-                else:
-                    libcalamares.utils.target_env_process_output(command)
-
-                return
-            except subprocess.CalledProcessError:
-                if pacman_count <= self.pacman_num_retries:
-                    pass
-                else:
-                    raise
+                    return
+                except subprocess.CalledProcessError:
+                    if pacman_count <= self.pacman_num_retries:
+                        pass
+                    else:
+                        raise
+        except Exception as e:
+            print("#################  begin error pacman  ###########################")
+            print(e)
+            print("#################   end error pacman   ###########################")
 
     def install(self, pkgs, from_local=False):
         command = ["pacman"]
