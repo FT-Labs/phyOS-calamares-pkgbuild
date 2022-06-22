@@ -30,11 +30,12 @@ source=("$_pkgname-$pkgver::$url/download/v$pkgver/$_pkgname-$pkgver.tar.gz"
 sha256sums=('55adef250613e80a868f2aa3d1e57bdae5b769387d91decf0fe2b64e3605574f'
             '8c7ca12724e8b196c227ad898e88a09f82b06a871c44c3ece4c64fbbf031ca4a'
             '830b6e2efaf794dd3c0503dc990249742ac97b8a92a414b2c1cdc9d562864aed'
-            '0d8a204420bb863f17c1e0a0c008443a5db1c37306e060ffacfde6e29e214ea5'
-            '6d030bfc6d20caf3ad70cc1676763cd75638c8c79c2f9f1d7f3d05331030aa2d'
+            '952c665e54ea18fd4fd16cf42320d266a2cbc481a61fc7c3ee5ed5757fba9f19'
+            'f111ef6f88ee5e9eed78e273d857cfadba46e1cb4a118ad9a5f7b11dcceaa3b3'
             'd9a15c3033422451bfe2ee944b17f938252942d2a9cdbcc0d9927211f553777b'
             '9ce76a4c4a0d90950e70be8d208235704360fbc64976ed6130719bcdedf34f27'
             '966c5f0834039dc6a7529e75f70417ba2510b1e643ffb49fd25855ce9dc244b4')
+
 
 pkgver() {
 	cd ${srcdir}/$_pkgname-$pkgver
