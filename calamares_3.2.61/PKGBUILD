@@ -3,7 +3,7 @@
 pkgname=phyOS-calamares
 _pkgname=calamares
 pkgver=3.2.61
-pkgrel=0
+pkgrel=01
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 license=(GPL)
@@ -36,8 +36,6 @@ sha256sums=('7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2'
             'd9a15c3033422451bfe2ee944b17f938252942d2a9cdbcc0d9927211f553777b'
             '9ce76a4c4a0d90950e70be8d208235704360fbc64976ed6130719bcdedf34f27'
             '966c5f0834039dc6a7529e75f70417ba2510b1e643ffb49fd25855ce9dc244b4')
-
-
 pkgver() {
 	cd ${srcdir}/$_pkgname-$pkgver
 	_ver="$(cat CMakeLists.txt | grep -m3 -e "  VERSION" | grep -o "[[:digit:]]*" | xargs | sed s'/ /./g')"
@@ -59,6 +57,7 @@ prepare() {
 	install -Dm644 "${srcdir}/"ucode_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/ucode/main.py
 	install -Dm644 "${srcdir}/"ucode_module.desc ${srcdir}/$_pkgname-$pkgver/src/modules/ucode/module.desc
 	install -Dm644 "${srcdir}/"dm_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/displaymanager/main.py
+	install -Dm644 "${srcdir}/"mount_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/mount/main.py
 	install -Dm644 "${srcdir}/"packages_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/packages/main.py
 }
 
