@@ -3,7 +3,7 @@
 pkgname=phyOS-calamares
 _pkgname=calamares
 pkgver=3.2.61
-pkgrel=01
+pkgrel=05
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 license=(GPL)
@@ -25,17 +25,10 @@ source=("$_pkgname-$pkgver::$url/download/v$pkgver/$_pkgname-$pkgver.tar.gz"
 	"packages_main.py"
 	"cal-phyOS.desktop"
 	"cal-phyOS-debug.desktop"
-	"calamares_polkit")
+	"calamares_polkit"
+    "fstab_main.py"
+    "mount_main.py")
 
-
-sha256sums=('7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2'
-            '8c7ca12724e8b196c227ad898e88a09f82b06a871c44c3ece4c64fbbf031ca4a'
-            '830b6e2efaf794dd3c0503dc990249742ac97b8a92a414b2c1cdc9d562864aed'
-            '952c665e54ea18fd4fd16cf42320d266a2cbc481a61fc7c3ee5ed5757fba9f19'
-            'f111ef6f88ee5e9eed78e273d857cfadba46e1cb4a118ad9a5f7b11dcceaa3b3'
-            'd9a15c3033422451bfe2ee944b17f938252942d2a9cdbcc0d9927211f553777b'
-            '9ce76a4c4a0d90950e70be8d208235704360fbc64976ed6130719bcdedf34f27'
-            '966c5f0834039dc6a7529e75f70417ba2510b1e643ffb49fd25855ce9dc244b4')
 pkgver() {
 	cd ${srcdir}/$_pkgname-$pkgver
 	_ver="$(cat CMakeLists.txt | grep -m3 -e "  VERSION" | grep -o "[[:digit:]]*" | xargs | sed s'/ /./g')"
@@ -58,6 +51,7 @@ prepare() {
 	install -Dm644 "${srcdir}/"ucode_module.desc ${srcdir}/$_pkgname-$pkgver/src/modules/ucode/module.desc
 	install -Dm644 "${srcdir}/"dm_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/displaymanager/main.py
 	install -Dm644 "${srcdir}/"mount_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/mount/main.py
+	install -Dm644 "${srcdir}/"fstab_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/fstab/main.py
 	install -Dm644 "${srcdir}/"packages_main.py ${srcdir}/$_pkgname-$pkgver/src/modules/packages/main.py
 }
 
@@ -90,3 +84,13 @@ package() {
 	install -Dm755 "$srcdir/calamares_polkit" "$pkgdir/usr/bin/calamares_polkit"
 	rm "$pkgdir/usr/share/applications/calamares.desktop"
 }
+sha256sums=('7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2'
+            '8c7ca12724e8b196c227ad898e88a09f82b06a871c44c3ece4c64fbbf031ca4a'
+            '830b6e2efaf794dd3c0503dc990249742ac97b8a92a414b2c1cdc9d562864aed'
+            '952c665e54ea18fd4fd16cf42320d266a2cbc481a61fc7c3ee5ed5757fba9f19'
+            'f111ef6f88ee5e9eed78e273d857cfadba46e1cb4a118ad9a5f7b11dcceaa3b3'
+            'd9a15c3033422451bfe2ee944b17f938252942d2a9cdbcc0d9927211f553777b'
+            '9ce76a4c4a0d90950e70be8d208235704360fbc64976ed6130719bcdedf34f27'
+            '966c5f0834039dc6a7529e75f70417ba2510b1e643ffb49fd25855ce9dc244b4'
+            '059f4afca48f642512815d4129c5310654fe7b6e6a08f7ad27d99a22c471c72e'
+            '076c3729256dcff2e511f1f66a527482227fcfcbaee97441f9bf1cc5c623452a')

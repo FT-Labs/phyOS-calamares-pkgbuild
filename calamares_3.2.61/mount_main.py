@@ -252,7 +252,13 @@ def mount_partition(root_mount_point, partition, partitions, mount_options, moun
         fstype = "vfat"
 
     if partition["mountPoint"] == "/":
+        libcalamares.utils.host_env_process_output(["/usr/local/bin/phyOS-installer", partition["device"]])
+        for i in range(len(partitions)):
+            if partitions[i] == partition:
+                partitions[i]["device"] = "/dev/mapper/phycrypt--vg-root"
+
         partition["device"] = "/dev/mapper/phycrypt--vg-root"
+        libcalamares.globalstorage.insert("partitions", partitions)
 
     device = partition["device"]
 
