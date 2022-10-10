@@ -3,7 +3,7 @@
 pkgname=phyOS-calamares
 _pkgname=calamares
 pkgver=3.2.61
-pkgrel=05
+pkgrel=09
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 license=(GPL)
@@ -92,5 +92,5 @@ sha256sums=('7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2'
             'd9a15c3033422451bfe2ee944b17f938252942d2a9cdbcc0d9927211f553777b'
             '9ce76a4c4a0d90950e70be8d208235704360fbc64976ed6130719bcdedf34f27'
             '966c5f0834039dc6a7529e75f70417ba2510b1e643ffb49fd25855ce9dc244b4'
-            '059f4afca48f642512815d4129c5310654fe7b6e6a08f7ad27d99a22c471c72e'
-            '076c3729256dcff2e511f1f66a527482227fcfcbaee97441f9bf1cc5c623452a')
+            '717f657d071697efa6d00c008655d1ee8bc597668ef5fc3d284f916b5b605b03'
+            '50e4f6265319b3721820d05e0cffb156901f3594457b18a60142267991edb266')

@@ -251,13 +251,22 @@ def mount_partition(root_mount_point, partition, partitions, mount_options, moun
     if fstype == "fat16" or fstype == "fat32":
         fstype = "vfat"
 
+    phy_conf = {}
+    with open("/tmp/phyinstall.conf", "r") as pc:
+        lines = pc.readlines()
+        for i in lines:
+            if "=" in i:
+                i = i.split("=")
+                phy_conf[i[0].strip("\n")] = i[1].strip("\n")
+
     if partition["mountPoint"] == "/":
         libcalamares.utils.host_env_process_output(["/usr/local/bin/phyOS-installer", partition["device"]])
         for i in range(len(partitions)):
             if partitions[i] == partition:
-                partitions[i]["device"] = "/dev/mapper/phycrypt--vg-root"
+                partitions[i]["device"] = f'/dev/mapper/{phy_conf["lvm_device"]}--vg-root'
+                break
 
-        partition["device"] = "/dev/mapper/phycrypt--vg-root"
+        partition["device"] = f'/dev/mapper/{phy_conf["lvm_device"]}--vg-root'
         libcalamares.globalstorage.insert("partitions", partitions)
 
     device = partition["device"]

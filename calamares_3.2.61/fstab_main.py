@@ -190,17 +190,15 @@ class FstabGenerator(object):
         mkdir_p(os.path.join(self.root_mount_point, "etc"))
         fstab_path = os.path.join(self.root_mount_point, "etc", "fstab")
         boot_path = os.path.join(self.root_mount_point, "boot")
-        efi_path = os.path.join(self.root_mount_point, "boot", "efi")
+        efi_path = os.path.join(boot_path, "efi")
         fstab = []
         libcalamares.utils.host_env_process_output(["/usr/local/bin/phyOS-genfstab", "-U", self.root_mount_point], fstab)
-        fstab = " ".join(fstab)
-        fstab = fstab.split("\n")
         libcalamares.utils.host_env_process_output(["/usr/bin/grub-install", "--efi-directory", efi_path, "--boot-directory", boot_path])
 
         with open(fstab_path, "w") as fstab_file:
             print(FSTAB_HEADER, file=fstab_file)
             for i in fstab:
-                print(i.strip(" "), file=fstab_file)
+                print(i, end="", file=fstab_file)
 
 
     def generate_fstab_line_info(self, partition):
